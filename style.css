@@ -4,9 +4,97 @@
   text-decoration: none;
   box-sizing: border-box;
 }
-
+html {
+  font-size: 62.5%;
+}
 body {
   background-color: #22243F;
   font-family: "Poppins" , sans-serif;
   color: #fff;
 }
+.header {
+  padding: 1.6rem 0;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+.header-text {
+  font-size: 1.8rem;
+}
+.form {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.user-input , .pin-btn{
+  border: none;
+  outline: none;
+  background-color: #fff;
+  padding: 0.8rem 1.6rem;
+  width: 9rem;
+  border-radius: 30px;
+  color: #8C8A9E;
+}
+.user-input::placeholder ,
+ .pin-btn::placeholder{
+  text-align: center;
+  color: #8C8A9E;
+}
+.log-in-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.log-in-svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.night-day-container {
+  background-color: #003566;
+  width: 10rem;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.6rem;
+  position: relative;
+  cursor: pointer;
+}
+.night-day-container::before {
+  content: "";
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  top: 50%;
+  left: 0.8rem;
+  transform: translateY(-50%);
+  transition: all 0.4s ease-out;
+}
+
+.night-day-container.active-mode::before {
+  left: calc(100% - 3.5rem - 0.8rem);
+}
+
+.night-btn , .day-btn{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.night-btn-svg , .day-btn-svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+
