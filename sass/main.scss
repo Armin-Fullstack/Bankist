@@ -5,6 +5,7 @@ $white-color: #fff;
 $input-text-color: #8C8A9E;
 $gray-color: #7d7d7d;
 $light-green-color: #4ecb71;
+$red-color: #f24e1e;
 
 
 * , *::after , *::before {
@@ -117,10 +118,6 @@ body {
   width: 2rem;
   height: 2rem;
 }
-
-.status {
-
-}
 .status-buttons {
   width: 100%;
   display: flex;
@@ -166,7 +163,7 @@ svg {
 }
 .status-details-container {
   overflow: scroll;
-  height: 35rem;
+  height: 30rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -204,6 +201,9 @@ svg {
 .detail-amount {
   font-size: 1.6rem;
 }
-.detail-sign {
+.detail-sign-green {
   color: $light-green-color;
+}
+.detail-sign-red {
+  color: $red-color;
 }

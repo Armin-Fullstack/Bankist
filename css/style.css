@@ -147,7 +147,7 @@ svg {
 
 .status-details-container {
   overflow: scroll;
-  height: 35rem;
+  height: 30rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -184,5 +184,8 @@ svg {
 .detail-amount {
   font-size: 1.6rem; }
 
-.detail-sign {
+.detail-sign-green {
   color: #4ecb71; }
+
+.detail-sign-red {
+  color: #f24e1e; }
