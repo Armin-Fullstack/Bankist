@@ -59,7 +59,7 @@ statusBtn.forEach((button , i) => {
 })
 
 // display movements
-const displayMovements = movements => {
+const displayMovements = ({movements}) => {
   statusDetailsContainer.innerHTML = ""
   movements.forEach(movement => {
     const takeNegetive = movement < 0 ? movement.toString().slice(1) : movement
@@ -75,11 +75,25 @@ const displayMovements = movements => {
           <p class="detail-date">Date , Time</p>
       </div>
       </div>
-    <p class="detail-amount"><span class="detail-sign-${movement > 0 ? "green" : "red"}">${movement > 0 ? "+" : "-"}</span>$${takeNegetive}</p>
+    <p class="detail-amount"><span class="detail-sign-${movement > 0 ? "green" : "red"}">${movement > 0 ? "+" : "-"}</span>${takeNegetive}</p>
   </div>
     `
     // attach the html template into its container
     statusDetailsContainer.insertAdjacentHTML("afterbegin" , html)
   })
 }
-displayMovements(account1.movements)
+displayMovements(account1)
+
+const createUserNames = accs => {
+  // We don't want to create a new array. We wanna modify the array. (SIDE EFEECT = do some work without returning anything) in this case the side effects are gonna be 
+  // to change the original accounts array.
+  // we are not returning anything bc we are producing a side effect.
+  accs.forEach(acc => {
+    acc.userName = acc.owner
+    .toLowerCase()
+    .split(" ")
+    .map(name => name[0])
+    .join("")
+  })
+}
+createUserNames(accounts)
