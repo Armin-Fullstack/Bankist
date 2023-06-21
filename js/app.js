@@ -3,9 +3,19 @@ const nightBtn = document.querySelector(".night-btn")
 const dayBtn = document.querySelector(".day-btn")
 const statusBtn = document.querySelectorAll(".status-btn")
 const statusBtnBorder = document.querySelector(".status-btn-border")
+const loginBtn = document.querySelector(".log-in-btn")
+
 
 const nightDayContainer = document.querySelector(".night-day-container")
 const statusDetailsContainer = document.querySelector(".status-details-container")
+const totalBalance = document.querySelector(".total-balance")
+const pinInput = document.querySelector(".pin-btn")
+const userInput = document.querySelector(".user-input")
+const welcomeText = document.querySelector(".header-text")
+const app = document.querySelector(".app")
+
+
+
 
 
 // Data
@@ -84,6 +94,12 @@ const displayMovements = ({movements}) => {
 }
 displayMovements(account1)
 
+const calcDisplayBalance = ({movements}) => {
+  const balance = movements.reduce((acc, curr) => acc + curr , 0)
+  totalBalance.textContent = `${balance} EUR`
+}
+
+calcDisplayBalance(account1)
 const createUserNames = accs => {
   // We don't want to create a new array. We wanna modify the array. (SIDE EFEECT = do some work without returning anything) in this case the side effects are gonna be 
   // to change the original accounts array.
@@ -97,3 +113,25 @@ const createUserNames = accs => {
   })
 }
 createUserNames(accounts)
+
+const deposit = account1.movements.filter(mov => mov > 0)
+const withdrawals = account1.movements.filter(mov => mov < 0)
+
+let currentAccount; // we will need this information about currentAccount for other functions!
+loginBtn.addEventListener("click" , function(e) {
+  e.preventDefault()
+  currentAccount = accounts.find(acc => acc.userName === userInput.value)
+  if(currentAccount?.pin === +pinInput.value) {
+    // Display UI and message
+    welcomeText.textContent = `Hi ${currentAccount.owner.split(" ")[0]}, welcome back!`
+    app.style.opacity = "1"
+    // display movements
+
+    //display balance
+
+    //display summary
+
+    pinInput.value = ""
+    userInput.value = ""
+  }
+})

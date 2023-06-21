@@ -118,6 +118,19 @@ body {
   width: 2rem;
   height: 2rem;
 }
+
+.total-container {
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app {
+  opacity: 0;
+  transition: all .7s;
+}
 .status-buttons {
   width: 100%;
   display: flex;
